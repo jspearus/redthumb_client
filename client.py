@@ -276,13 +276,16 @@ def plant_controller(): # runs in thread
             if tankLvl < 3:
                 if current_mLvls[1] < plant1lvl and current_datetime > next_water_time_1:
                     run_command('plant1')
-                    next_water_time_1 = datetime.now() + timedelta(hours=6)
+                    next_water_time_1 = datetime.now() + timedelta(days=7)
+                    
                 if current_mLvls[2] < plant2lvl and current_datetime > next_water_time_2:
                     run_command('plant2')
-                    next_water_time_2 = datetime.now() + timedelta(hours=6)
+                    next_water_time_2 = datetime.now() + timedelta(days=7)
+                    
                 if current_mLvls[3] < plant3lvl and current_datetime > next_water_time_3:
                     run_command('plant3')
-                    next_water_time_3 = datetime.now() + timedelta(hours=1)
+                    next_water_time_3 = datetime.now() + timedelta(days=2)
+                    
         time.sleep(600)
         
 def useInput():
