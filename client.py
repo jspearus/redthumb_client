@@ -65,13 +65,13 @@ def on_open(wsapp):
     newDayThead.setDaemon(True)
     newDayThead.start()
 
-    treeThead = threading.Thread(target=plant_controller, args=())
-    treeThead.setDaemon(True)
-    treeThead.start()
-    
     plantsThead = threading.Thread(target=check_plants, args=())
     plantsThead.setDaemon(True)
     plantsThead.start()
+    
+    treeThead = threading.Thread(target=plant_controller, args=())
+    treeThead.setDaemon(True)
+    treeThead.start()
     
     updateWLvl() 
     updateTankLvl()
@@ -231,8 +231,8 @@ else:
 
 #########################################################################
 def check_plants():    # runs in thread
-    global connected, current_datetime, status_update_time
-    time.sleep(15)
+    global connected, current_datetime, status_update_time, current_mLvls
+    time.sleep(2)
     print("Moister checker running...")
     while connected:
         current_datetime = datetime.now()
@@ -249,27 +249,14 @@ def check_plants():    # runs in thread
         
 #####################################################################
 
-
-def check_new_day():  # runs in thread
-    global connected, name
-    global  current_day
-    time.sleep(5)
-    print("New Day Updater Running...")
-    while connected:
-        if current_day.day != datetime.now().day:
-            current_day = datetime.now()
-            send_msg("sunset", "all")
-        time.sleep(90)
-        
-########################################################################
-
 def plant_controller(): # runs in thread
     global ctrlr_status, connected, current_datetime
     global next_water_time_1, next_water_time_2, next_water_time_3
     global tankLvl, current_mLvls
     global plant1lvl, plant1lv2, plant1lv3
+    time.sleep(10) 
     print("Plant controller running...")
-    time.sleep(20) 
+    # print(f"mlevels: {current_mLvls}")
     while connected:
         if ctrlr_status:
             current_datetime = datetime.now()
@@ -288,9 +275,11 @@ def plant_controller(): # runs in thread
                     
         time.sleep(600)
         
+########################################################################
+        
 def useInput():
     global connected
-    time.sleep(2)
+    time.sleep(20)
     dest = ""
     send_msg("connected", dest)
     while connected:
@@ -314,6 +303,19 @@ def useInput():
             else:
                 send_msg(smsg, dest)
                 time.sleep(.3)
+                
+############################################################################
+        
+def check_new_day():  # runs in thread
+    global connected, name
+    global  current_day
+    time.sleep(30)
+    print("New Day Updater Running...")
+    while connected:
+        if current_day.day != datetime.now().day:
+            current_day = datetime.now()
+            send_msg("sunset", "all")
+        time.sleep(90)
                 
 def get_ip():
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
