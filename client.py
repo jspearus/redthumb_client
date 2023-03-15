@@ -81,6 +81,8 @@ def on_open(wsapp):
     time.sleep(.5)
     send_msg(f"TankLvl:{str(getTankLvl())}", 'web')
     time.sleep(.5)
+    send_msg(f"ctrlr:{str(ctrlr_status)}", 'web')
+    time.sleep(.5)
     send_msg(f"ip: {get_ip()}", 'web')
 
 
