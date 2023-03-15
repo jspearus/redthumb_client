@@ -1,0 +1,31 @@
+plant1 dry:
+    563, 566, 564, 563,  563
+plant2 dry:
+    565, 567, 565, 563, 564
+plant3 dry:
+    565, 565, 565, 563, 564
+
+plant1 wet:
+    250, 251, 251, 250, 251
+plant2 wet:
+    245, 248, 243, 244, 247
+plant3 wet:
+    245, 247, 245, 245, 247
+
+
+after One Week and calibrateed sensors:
+    Plant1:
+        46, 48, 48, 48, 48
+    Plant2:
+        50, 50, 50, 50, 50
+    Plant3:
+        37, 37, 37, 37, 36
+
+good level after calibration:
+
+    plant1:
+        81, 81, 80, 80, 80
+    plant2:
+        75, 75, 74, 74, 75
+    plant3:
+        73, 73, 67, 67, 68
