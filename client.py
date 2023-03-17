@@ -255,7 +255,7 @@ def plant_controller(): # runs in thread
     global ctrlr_status, connected, current_datetime
     global next_water_time_1, next_water_time_2, next_water_time_3
     global tankLvl, current_mLvls
-    global plant1lvl, plant1lv2, plant1lv3
+    global plant1lvl, plant2lvl, plant3lvl
     time.sleep(10) 
     print("Plant controller running...")
     # print(f"mlevels: {current_mLvls}")
@@ -265,11 +265,11 @@ def plant_controller(): # runs in thread
             if tankLvl < 3:
                 if current_mLvls[1] < plant1lvl and current_datetime > next_water_time_1:
                     run_command('plant1')
-                    next_water_time_1 = datetime.now() + timedelta(days=7)
+                    next_water_time_1 = datetime.now() + timedelta(days=6)
                     
                 if current_mLvls[2] < plant2lvl and current_datetime > next_water_time_2:
                     run_command('plant2')
-                    next_water_time_2 = datetime.now() + timedelta(days=7)
+                    next_water_time_2 = datetime.now() + timedelta(days=6)
                     
                 if current_mLvls[3] < plant3lvl and current_datetime > next_water_time_3:
                     run_command('plant3')
