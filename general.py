@@ -38,19 +38,19 @@ def serialRead():
     elif "plant1" in Data:
         print("watering...")   
         port.write(str.encode(f"pump1on#"))
-        time.sleep(1.5)
+        time.sleep(12)
         port.write(str.encode(f"pump1off#"))
         
     elif "plant2" in Data:
         print("watering...")   
         port.write(str.encode(f"pump2on#"))
-        time.sleep(1.5)
+        time.sleep(12)
         port.write(str.encode(f"pump2off#"))
         
     elif "plant3" in Data:
         print("watering...")   
         port.write(str.encode(f"pump3on#"))
-        time.sleep(1.5)
+        time.sleep(12)
         port.write(str.encode(f"pump3off#"))
     else:
         pass
