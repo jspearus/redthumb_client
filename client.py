@@ -26,8 +26,8 @@ sunSet2_Offset = 20
 tankLvl = 99
 current_mLvls = [100, 100, 100, 100]
 
-plant1lvl = 40
-plant1lv2 = 40
+plant1lvl = 50
+plant1lv2 = 50
 plant1lv3 = 60
 
 
