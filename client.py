@@ -24,11 +24,11 @@ hour, minute = 16, 30
 sunSet2_Offset = 20
 
 tankLvl = 99
-current_mLvls = [100, 100, 100, 100]
+current_mLvls = [199, 199, 199, 199]
 
-plant1lvl = 50
-plant1lv2 = 50
-plant1lv3 = 60
+plant1lvl = 55
+plant1lv2 = 55
+plant1lv3 = 65
 
 
 
